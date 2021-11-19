@@ -2,10 +2,11 @@ from absl import app
 from lit_nlp import dev_server, server_flags
 from lit_nlp.examples.models.glue_models import GlueModel
 
-from tass_data import TASSSentimentData,TASSSentLabels
+from tass_data import TASSSentimentData, TASSSentLabels
 
 
-project_path = '/home/work/Documents/text-mining/proyecto-final'
+project_path = '/home/work/Documents/lit-analysis/pysentimiento'
+
 
 class BetoSentiment(GlueModel):
     """Beto Sentiment Classification model on TASS."""

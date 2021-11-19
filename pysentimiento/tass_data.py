@@ -32,6 +32,7 @@ class TASSSentimentData(lit_dataset.Dataset):
 
     def __init__(self, folder_path):
         print(f"cwd: {os.getcwd()}")
+        original_path = os.getcwd()
         os.chdir(folder_path)
         self._examples = []
         self._countries = []
@@ -47,10 +48,12 @@ class TASSSentimentData(lit_dataset.Dataset):
                         'country': country
                     }
                 )
+        os.chdir(original_path)
 
     def spec(self):
         return {
             'tweet': lit_types.TextSegment(),
+            'country': lit_types.CategoryLabel(vocab=TASSSentLabels),
             'label': lit_types.CategoryLabel(vocab=TASSSentLabels)
         }
 
